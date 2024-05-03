@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Cafe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>Menu</li></a>
+            <a href="#"><li>Reservations</li></a>
+            <a href="#"><li>Contact</li></a>
+        </ul>
+    </div>
+    <div class="language-switch">
+        <div class="dropdown">
+            <button class="dropbtn">Languages</button>
+            <div class="dropdown-content">
+                <a href="#" onclick="switchLanguage('en')"><img src="flag-en.svg" alt="English" /> English</a>
+                <a href="#" onclick="switchLanguage('ar')"><img src="flag-ar.svg" alt="Arabic" /> Arabic</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="coffee-shop-1.jpeg" style="width:100%" alt="c1">
+        <div class="text">Caption Text</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="coffee-shop-2.jpeg" style="width:100%" alt="c2">
+        <div class="text">Caption Text</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="coffee-shop-3.jpg" style="width:100%">
+        <div class="text">Caption Text</div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
