@@ -815,10 +815,10 @@ section {
   margin: 0 auto;
 }
 
-.projects .heading {
-  color: var(--white);
+.projects .projects .heading {
+  color: var(--black);
   margin-bottom: 3rem;
-  text-align: center;
+  text-align: left;
   font-size: 3rem;
 }
 
