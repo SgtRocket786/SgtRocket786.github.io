@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details - Sisic Construction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div include-html="../html/header.html"></div>
+
+<section class="job-detail">
+    <h1 class="heading" id="job-title">Job Title</h1>
+    <div class="content">
+        <p id="job-description">Detailed job description will be loaded here...</p>
+        <a href="careers.html" class="btn">Back to Careers</a>
+    </div>
+</section>
+
+<div include-html="../html/footer.html"></div>
+
+<script src="../js/script.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const jobId = urlParams.get('job');
+
+    const jobDetails = {
+        1: {
+            title: "Job Title 1",
+            description: "This is a detailed description of Job 1..."
+        },
+        2: {
+            title: "Job Title 2",
+            description: "This is a detailed description of Job 2..."
+        }
+        // Add more job details as needed
+    };
+
+    if (jobDetails[jobId]) {
+        document.getElementById('job-title').innerText = jobDetails[jobId].title;
+        document.getElementById('job-description').innerText = jobDetails[jobId].description;
+    } else {
+        document.getElementById('job-title').innerText = "Job Not Found";
+        document.getElementById('job-description').innerText = "The job you are looking for does not exist.";
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        includeHTML();
+    });
+</script>
+
+</body>
+</html>

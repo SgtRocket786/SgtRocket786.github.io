@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Sisic Construction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div include-html="../html/header.html"></div>
+
+<section class="careers">
+    <h1 class="heading">Career Opportunities</h1>
+    <div class="job-list">
+        <div class="job-item">
+            <h2 class="job-title">Job Title 1</h2>
+            <p class="job-description">Short description of Job 1...</p>
+            <a href="job-detail.html?job=1" class="btn">View Details</a>
+        </div>
+        <div class="job-item">
+            <h2 class="job-title">Job Title 2</h2>
+            <p class="job-description">Short description of Job 2...</p>
+            <a href="job-detail.html?job=2" class="btn">View Details</a>
+        </div>
+        <!-- Add more job listings as needed -->
+    </div>
+</section>
+
+<div include-html="../html/footer.html"></div>
+
+<script src="../js/script.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        includeHTML();
+    });
+</script>
+
+</body>
+</html>

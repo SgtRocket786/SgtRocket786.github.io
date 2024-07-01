@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Sisic Construction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.2.0/css/lightgallery.min.css" />
+</head>
+<body>
+
+<div include-html="../html/header.html"></div>
+
+<section class="project-detail">
+    <h1 class="heading" id="project-title">Project Title</h1>
+    <div class="content">
+        <div id="lightgallery" class="swiper-container project-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-src="../images/project-1a.jpg">
+                    <img src="../images/project-1a.jpg" alt="Project Image 1">
+                </div>
+                <div class="swiper-slide" data-src="../images/project-1b.jpg">
+                    <img src="../images/project-1b.jpg" alt="Project Image 2">
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <p id="project-description">Detailed project description will be loaded here...</p>
+        <a href="all-projects.html" class="btn">Back to Projects</a>
+    </div>
+</section>
+
+<div include-html="../html/footer.html"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.2.0/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.2.0/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.2.0/plugins/fullscreen/lg-fullscreen.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="../js/script.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get('project');
+
+    const projectDetails = {
+        1: {
+            title: "Project Title 1",
+            description: "This is a detailed description of project 1...",
+            images: [
+                "../images/project-1a.jpg",
+                "../images/project-1b.jpg"
+                // Add more image URLs as needed
+            ]
+        },
+        2: {
+            title: "Project Title 2",
+            description: "This is a detailed description of project 2...",
+            images: [
+                "../images/project-2-1.jpg",
+                "../images/project-2-2.jpg"
+                // Add more image URLs as needed
+            ]
+        }
+        // Add more project details as needed
+    };
+
+    if (projectDetails[projectId]) {
+        document.getElementById('project-title').innerText = projectDetails[projectId].title;
+        document.getElementById('project-description').innerText = projectDetails[projectId].description;
+
+        const swiperWrapper = document.querySelector('.swiper-wrapper');
+        swiperWrapper.innerHTML = ''; // Clear existing slides
+        projectDetails[projectId].images.forEach(imgUrl => {
+            const slide = document.createElement('div');
+            slide.classList.add('swiper-slide');
+            slide.setAttribute('data-src', imgUrl);
+            slide.innerHTML = `<img src="${imgUrl}" alt="Project Image">`;
+            swiperWrapper.appendChild(slide);
+        });
+
+        const swiper = new Swiper(".project-slider", {
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        lightGallery(document.getElementById('lightgallery'), {
+            selector: '.swiper-slide',
+            thumbnail: true,
+            mode: 'lg-fade',
+            addClass: 'lg-fixed-size',
+            download: false,
+            closable: true
+        });
+    } else {
+        document.getElementById('project-title').innerText = "Project Not Found";
+        document.getElementById('project-description').innerText = "The project you are looking for does not exist.";
+    }
+</script>
+
+</body>
+</html>
